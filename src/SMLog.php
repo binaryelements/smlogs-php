@@ -53,7 +53,7 @@ class SMLog
         $json = [
             'contents' => $contents,
             'module' => $module,
-            'type' => $type
+            'status' => $type
         ];
 
         $ch = curl_init(self::URL);
