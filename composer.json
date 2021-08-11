@@ -1,0 +1,17 @@
+{
+    "name": "growth-elements/smlog-php",
+    "description": "Logging package for SMlogs",
+    "type": "library",
+    "license": "proprietary",
+    "homepage": "https://www.growth-elements.com",
+    "authors": [
+        {
+            "name": "Growth Elements",
+            "email": "keiri@growth-elements.com"
+        }
+    ],
+    "require": {
+        "ext-curl": "*",
+        "ext-json": "*"
+    }
+}
