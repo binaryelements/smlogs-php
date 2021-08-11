@@ -40,7 +40,7 @@ class SMLog
     public function add($type, $module, $contents)
     {
         if (!$this->checkForValidStatus($type) && $this->AppShowError) {
-            var_dump("GE:SMLOG - Invalid status. Please check again.");
+            var_dump("GE:SMLOG - Invalid status" . $type." Please check again.");
         }
 
         if ($type === self::DEBUG && !$this->AppIsDebug) {
@@ -54,7 +54,9 @@ class SMLog
         ];
 
         $ch = curl_init(self::URL);
-        # Setup request to send json via POST.
+        if ($this->AppShowError) {
+            curl_setopt($ch, CURLOPT_VERBOSE, true);
+        }
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($json));
         curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type:application/json', 'X-Debug-Name:' . $this->AppName, 'X-Token:' . $this->AppId]);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -68,9 +70,9 @@ class SMLog
         $resJson = json_decode($result);
         //JSON Error
         if (json_last_error() != JSON_ERROR_NONE && $this->AppShowError) {
-            var_dump("GE:SMLOG - ".$resJson);
+            var_dump($resJson);
         } else if ($this->AppDisplayToConsole) {
-            var_dump("GE:SMLOG - ".$resJson);
+            var_dump($resJson);
         }
         curl_close($ch);
 
