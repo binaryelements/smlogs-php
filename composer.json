@@ -10,8 +10,10 @@
             "email": "keiri@growth-elements.com"
         }
     ],
+    "autoload": {
+        "psr-4": {"GrowthElements\\": "src/"}
+    },
     "require": {
-        "ext-curl": "*",
-        "ext-json": "*"
+        "php": ">=7.0"
     }
 }
