@@ -1,5 +1,5 @@
 {
-    "name": "growth-elements/smlog-php",
+    "name": "binaryelements/smlogs-php",
     "description": "Logging package for SMlogs",
     "type": "library",
     "license": "proprietary",
