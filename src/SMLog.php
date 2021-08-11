@@ -30,7 +30,10 @@ class SMLog
     }
 
     private function checkForValidStatus($status) {
-        if ($status != self::DEBUG || $status != self::ERROR || $status != self::INFO || $status != self::SUCCESS || $status != self::CRITICAL || $status != self::START || $status != self::PING) {
+        if ($status != self::DEBUG && $status != self::ERROR
+            && $status != self::INFO && $status != self::SUCCESS
+            && $status != self::CRITICAL && $status != self::START
+            && $status != self::PING) {
             return false;
         } else {
             return true;
