@@ -2,7 +2,6 @@
 
 
 namespace GrowthElements;
-require 'vendor/autoload.php';
 
 class SMLog
 {
