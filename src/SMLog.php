@@ -123,7 +123,7 @@ class SMLog
             'platform'=> 'PHP '.phpversion()
         ];
 
-        $ch = curl_init(self::URL);
+        $ch = curl_init($this->Destination);
         if ($this->AppShowError) {
             curl_setopt($ch, CURLOPT_VERBOSE, true);
         }
