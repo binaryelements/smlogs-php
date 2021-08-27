@@ -139,14 +139,11 @@ class SMLog
 
         $resJson = json_decode($result);
         //JSON Error
-        if (json_last_error() != JSON_ERROR_NONE && $this->AppShowError) {
-            var_dump($resJson);
-        } else if ($this->AppDisplayToConsole) {
+        if (json_last_error() != JSON_ERROR_NONE && $this->AppDisplayToConsole) {
             var_dump($resJson);
         }
         curl_close($ch);
 
-        return true;
     }
 
     function GetCallingMethodName(){
