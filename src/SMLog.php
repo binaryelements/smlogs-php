@@ -5,7 +5,6 @@ namespace GrowthElements;
 
 class SMLog
 {
-    const URL = "https://logs.smoothorders.com";
     const ERROR = "ERROR";
     const INFO = "INFO";
     const DEBUG = "DEBUG";
@@ -40,23 +39,10 @@ class SMLog
         if ($destination) {
             $this->Destination = $destination;
         } else {
-            $this->Destination = self::URL;
+            echo "SMLogs: We need a destination.";
         }
         $this->HasBeenInit = true;
     }
-
-    private function checkForValidStatus($status)
-    {
-        if ($status != self::DEBUG && $status != self::ERROR
-            && $status != self::INFO && $status != self::SUCCESS
-            && $status != self::CRITICAL && $status != self::START
-            && $status != self::PING) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
 
     /**
      * $var1 = Type, $var2 = Module, $var3 = Contents
@@ -111,7 +97,7 @@ class SMLog
 //        }
 
 
-        if ($type === self::DEBUG && !$this->AppIsDebug) {
+        if ($type == self::DEBUG && !$this->AppIsDebug) {
             return;
         }
 
